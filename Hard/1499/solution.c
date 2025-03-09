@@ -1,25 +1,26 @@
 #include <stdio.h> 
 #include "solution.h"
-#define INT_MIN -2147483648
 
+int findMaxValueOfEquation(int** points, int pointsSize, int* pointsColSize, int k) {
+    int max = 0; 
+    int abs_max = 0;
 // max = yi + yj + |xi - xj|   
 // |xi - xj| <= k
-int findMaxValueOfEquation(int** points, int pointsSize, int* pointsColSize, int k) {
-    int abs_max = INT_MIN;
 
-    for (int i = 0; i < pointsSize - 1; i++) {
-        for (int j = i + 1; j < pointsSize; j++) {
-            int val = points[j][0] - points[i][0];
+    for(int i=0; i<pointsSize; i++){
+        for(int j=i; j<pointsSize; j++){
+            int mod = points[i][0] + points[j][0];
+            mod = mod < 0 ? mod*-1 : mod;
 
-            if (val > k) {
-                break;
+            if(mod <= k){
+                max = points[i][1] + points[j][1] + mod;
             }
 
-            int total = points[i][1] + points[j][1] + val;
-            if (total > abs_max) {
-                abs_max = total;
+            if(max > abs_max){
+                abs_max = max; 
             }
         }
     }
+
     return abs_max;
 }
