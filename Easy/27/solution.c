@@ -1,7 +1,7 @@
 int removeElement(int* nums, int numsSize, int val) {
 
     if(numsSize == 0){
-        return;
+        return 0;
     }
 
     //[0,1,2,2,3,0,4,2]     val = 2
