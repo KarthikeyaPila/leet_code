@@ -56,9 +56,9 @@ int main(){
     char string[] = "A man, a plan, a canal: Panama";
 
     if(isPalindrome(string)){
-        printf("it is a pallindrome\n");
+        printf("it is a palindrome\n");
     } else {
-        printf("it is not a pallindrome\n");
+        printf("it is not a palindrome\n");
     }
 
     return 0;
