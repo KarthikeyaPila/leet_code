@@ -1,0 +1,1 @@
+char* removeDigit(char* num_arr, char len);
